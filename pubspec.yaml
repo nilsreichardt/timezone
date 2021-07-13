@@ -5,6 +5,14 @@ repository: https://github.com/srawlins/timezone
 environment:
   sdk: '>=2.12.0 <3.0.0'
 dependencies:
+  # Fork by Nils, because cron_parser isn't migrated to null safety yet and
+  # `previous()` is missing. This fork can be remove, when this PRs are merged:
+  # - https://github.com/rbubke/cron-parser/pull/4
+  # - https://github.com/rbubke/cron-parser/pull/5 
+  cron_parser:
+    git:
+      url: https://github.com/nilsreichardt/cron-parser
+      ref: 4d97e161ebca5ff136652b7d18df669e8bb90c71
   path: ^1.8.0
 dev_dependencies:
   args: any
