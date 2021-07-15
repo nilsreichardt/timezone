@@ -24,8 +24,7 @@ void main() {
       const timezone = "Europe/Berlin";
 
       test(
-          // ignore: lines_longer_than_80_chars
-          "get previous cron time, if matchmaking already starting and is still going",
+          'get previous cron time, if matchmaking already starting and is still going',
           () {
         final current = DateTime.parse('2019-11-23 12:00:00');
         final expected = DateTime.parse('2019-11-23 11:00:00');
@@ -64,11 +63,9 @@ void main() {
         );
       });
 
-      // ignore: lines_longer_than_80_chars
       // Test for bug "app shoes matchmaking is started on 1. August, even if cron job is set to 7. August":
       // https://github.com/GatchHQ/gatch/issues/479
       test(
-          // ignore: lines_longer_than_80_chars
           'should start 7. August, if 7. August is set in the cron (0 19 7 8 *)',
           () {
         final current = DateTime.parse('2021-07-11 13:00:01');
@@ -92,14 +89,13 @@ void main() {
   });
 }
 
-// ignore: lines_longer_than_80_chars
 DateTime calcMatchmakingStart(
     DateTime current, CronIterator<TZDateTime> cron, Duration duration) {
-  // final previous = cron.previous();
-  // if (previous.add(duration).isAfter(current)) {
-  //   return previous;
-  // }
-  return cron.next().toLocal();
+  final previous = cron.previous();
+  if (previous.add(duration).isAfter(current)) {
+    return previous;
+  }
+  return cron.next();
 }
 
 DateTime calcMatchmakingEndtime(DateTime start, Duration duration) {
