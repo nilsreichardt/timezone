@@ -99,7 +99,7 @@ DateTime calcMatchmakingStart(
   // if (previous.add(duration).isAfter(current)) {
   //   return previous;
   // }
-  return cron.next();
+  return cron.next().toLocal();
 }
 
 DateTime calcMatchmakingEndtime(DateTime start, Duration duration) {
