@@ -95,10 +95,10 @@ void main() {
 // ignore: lines_longer_than_80_chars
 DateTime calcMatchmakingStart(
     DateTime current, CronIterator<TZDateTime> cron, Duration duration) {
-  final previous = cron.previous();
-  if (previous.add(duration).isAfter(current)) {
-    return previous;
-  }
+  // final previous = cron.previous();
+  // if (previous.add(duration).isAfter(current)) {
+  //   return previous;
+  // }
   return cron.next();
 }
 
